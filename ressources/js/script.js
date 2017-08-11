@@ -51,7 +51,7 @@ function displayEvent(player) {
     $("#money").html(player.money);
     $("#dispFlowers").html("");
     player.flowers.forEach(function (flower) {
-        $("#dispFlowers").html($("#dispFlowers").html() + "<div class=\"flower\"><span class=\"flower-span\" id=\""+ x + "\">Croissance : " + flower.growth + ", Vitalit&eacute; : " + flower.vitality + ", Hydratation : " + flower.moisture + "</span> <button class=\"water\" id=\"" + x + "\>Water</button><button class=\"sell\" id=\"" + x +">Sell</button></div>");
+        $("#dispFlowers").html($("#dispFlowers").html() + "<div class=\"flower\"><span class=\"flower-span\" id=\""+ x + "\">Croissance : " + flower.growth + ", Vitalit&eacute; : " + flower.vitality + ", Hydratation : " + flower.moisture + "</span> <button class=\"water\" id=\"" + x + "\"\>Water</button><button class=\"sell\" id=\"" + x +"\">Sell</button></div>");
         x++;
     });
 }

@@ -25,7 +25,9 @@
             }, 100);
 
             $("#dispFlowers").on('click', ".water", function () {
-                print(this.id);
+                var id = parseInt(this.id);
+                print(player.flowers[id]);
+                player.flowers[id].water(100);
             });
         });
     </script>
