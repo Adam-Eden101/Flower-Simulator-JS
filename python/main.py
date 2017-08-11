@@ -2,13 +2,16 @@
 
     # Import ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-from math import *
-from fonctions import *
-from Fleur import *
-from threading import *
-from Tkinter import *
 
+
+import Fleur
 import time
+import tkinter as tk
+
+from threading import Thread
+from fonctions import charger_parametres
+from tkinter import Tk, Menu, Canvas, TOP, BOTTOM, LEFT, PhotoImage, StringVar, Label, Radiobutton, messagebox, Button, NW, FLAT
+
 parametres = charger_parametres()
 
 argent = 5
@@ -102,7 +105,7 @@ fenetre.resizable(width=False, height=False)
     # Alerte temporaire ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def alert():
-    tkinter.messagebox.showinfo("CE BOUTON NE MARCHE PAS ENCORE !", "Vous venez de cliquer sur un bouton qui n'a pas encore été assigné.")
+    messagebox.showinfo("CE BOUTON NE MARCHE PAS ENCORE !", "Vous venez de cliquer sur un bouton qui n'a pas encore été assigné.")
 
     # Menubar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

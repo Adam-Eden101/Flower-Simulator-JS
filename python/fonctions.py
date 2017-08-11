@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from random import *
+import random
 
 
 def alea(x):
