@@ -6,5 +6,16 @@ body {
     border:3px solid black;
     margin:10px;
     padding:10px;
-    display:inline-flex;
+    display:inline-block;
+}
+
+.water {
+    margin-left:5px;
+}
+
+.myBar {
+    width: 0%;
+    height: 40px;
+    background-color: green;
+    z-index: -1;
 }

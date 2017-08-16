@@ -16,19 +16,24 @@
             var player = new Player();
             displayEvent(player);
             $("#buyFlower").click(function () {
-                buyFlower(player);
+                player.buyFlower();
             });
-
-            setInterval(function () {
-                displayTic(player);
-                growFlower(player);
-            }, 100);
 
             $("#dispFlowers").on('click', ".water", function () {
                 var id = parseInt(this.id);
-                print(player.flowers[id]);
-                player.flowers[id].water(100);
+                var flower = player.flowers[id];
+                flower.water(100);
             });
+
+            $("#dispFlowers").on('click', ".sell", function () {
+                var id = parseInt(this.id);
+                player.sellFlower(id);
+            });
+
+            setInterval(function () {
+                player.growFlowers();
+                displayTic(player);
+            }, 100);
         });
     </script>
 </head>
