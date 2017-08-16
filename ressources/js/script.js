@@ -23,9 +23,19 @@ class Flower {
     water(amount) {
         this.moisture += amount;
         if (this.moisture < 0) {
-            this.moisture == 0;
+            this.moisture = 0;
         }
     }
+}
+
+function displayEvent(player) {
+    var x = 0;
+    $("#money").html(player.money);
+    $("#dispFlowers").html("");
+    player.flowers.forEach(function (flower) {
+        $("#dispFlowers").html($("#dispFlowers").html() + "<div class=\"flower\"><span class=\"flower-span\" id=\""+ x + "\">Croissance : " + flower.growth + ", Vitalit&eacute; : " + flower.vitality + ", Hydratation : " + flower.moisture + "</span> <button class=\"water\" id=\"" + x + "\"\>Water</button><button class=\"sell\" id=\"" + x +"\">Sell</button></div>");
+        x++;
+    });
 }
 
 function buyFlower(player) {
@@ -46,26 +56,16 @@ function displayTic(player) {
     });
 }
 
-function displayEvent(player) {
-    var x = 0;
-    $("#money").html(player.money);
-    $("#dispFlowers").html("");
-    player.flowers.forEach(function (flower) {
-        $("#dispFlowers").html($("#dispFlowers").html() + "<div class=\"flower\"><span class=\"flower-span\" id=\""+ x + "\">Croissance : " + flower.growth + ", Vitalit&eacute; : " + flower.vitality + ", Hydratation : " + flower.moisture + "</span> <button class=\"water\" id=\"" + x + "\"\>Water</button><button class=\"sell\" id=\"" + x +"\">Sell</button></div>");
-        x++;
-    });
-}
-
 function randRain() {
     var rand = Math.floor((Math.random() * 500) + 1);
-    return (rand == 1); 
+    return (rand === 1); 
 }
 
 function growFlower(player) {
     var x = 0;
     var rain = randRain();
     player.flowers.forEach(function (flower) {
-        if (flower.grown == false) {
+        if (flower.grown === false) {
             flower.growth++;
             flower.grown = (flower.growth >= 1000);
             if (rain) {
