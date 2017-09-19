@@ -1,6 +1,6 @@
-﻿<html>
+<html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Flower Simulator Web</title>
     <script src="ressources/js/script.js"></script>
     <script src="ressources/js/canvas.js"></script>
@@ -16,34 +16,12 @@
         $(document).ready(function () {
             myGameArea.start();
             myGamePiece = new Component(30, 30, "red", 0, 120);
-
-            var player = new Player();
-            displayEvent(player);
-            $("#buyFlower").click(function () {
-                player.buyFlower();
+            $(document).keydown(function (event) {
+                updateController(event);
             });
-
-            $("#dispFlowers").on('click', ".water", function () {
-                var id = parseInt(this.id);
-                var flower = player.flowers[id];
-                flower.water(100);
-            });
-
-            $("#dispFlowers").on('click', ".sell", function () {
-                var id = parseInt(this.id);
-                player.sellFlower(id);
-            });
-
-            setInterval(function () {
-                player.growFlowers();
-                displayTic(player);
-            }, 100);
         });
     </script>
 </head>
 <body>
-    <h1 class="text-center" id="money"></h1>
-    <button id="buyFlower">Add flower</button>
-    <div id="dispFlowers"></div>
 </body>
 </html>

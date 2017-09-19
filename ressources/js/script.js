@@ -21,18 +21,7 @@ class Player{
         var player = this;
         this.flowers.forEach(function (flower) {
             if (flower.grown === false) {
-                flower.growth++;
-                flower.grown = (flower.growth >= 1000);
-                if (rain) {
-                    flower.water(600);
-                }
-                flower.moisture -= 2;
-                if (flower.moisture < 500 || flower.moisture > 1300) {
-                    flower.vitality -= 5;
-                }
-                else if (flower.vitality < 1000 && flower.growth) {
-                    flower.vitality++;
-                }
+                updateFlower(flower, rain);
             }
             else {
                 flower.vitality -= 2;
@@ -76,6 +65,21 @@ class Flower {
         if (this.moisture < 0) {
             this.moisture = 0;
         }
+    }
+}
+
+function updateFlower(flower, rain) {
+    flower.growth++;
+    flower.grown = (flower.growth >= 1000);
+    if (rain) {
+        flower.water(600);
+    }
+    flower.moisture -= 2;
+    if (flower.moisture < 500 || flower.moisture > 1300) {
+        flower.vitality -= 5;
+    }
+    else if (flower.vitality < 1000 && !flower.grown) {
+        flower.vitality++;
     }
 }
 
